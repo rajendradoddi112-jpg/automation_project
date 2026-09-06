@@ -24,7 +24,19 @@ jobs:
 
     - name: Install dependencies
       run:
-      
+        python -m pip Install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Run tests 
+      run : 
+        pytest -v tests/tes_api.py
+
+    - name: upload report
+      uses: actions/upload-artifact@v2
+      with:
+        name: pytest-report
+        path: report.html
+
     
 
     
