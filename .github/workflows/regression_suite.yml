@@ -14,30 +14,27 @@ jobs:
   run_tests:
     runs-on: ubuntu-latest
 
-  steps:
-    - name: Checkout code
-    uses: actions/checkout@v2
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-    -name: Set up python
-    uses: actions/setup-python@v2
-    
-    with:
-      python-version: '3.13'
+      - name: Set up python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.13'
 
-    - name: Install dependencies
-      run:
-        python -m pip Install --upgrade pip
-        pip install -r requirements.txt
+      - name: Install dependencies
+        run: pip install -r requirements.txt
 
-    - name: Run tests 
-      run : 
-        pytest -v tests/tes_api.py
+      - name: Run tests 
+        run :
+          pytest -v tests/tes_api.py
 
-    - name: upload report
-      uses: actions/upload-artifact@v2
-      with:
-        name: pytest-report
-        path: report.html
+      - name: upload report
+        uses: actions/upload-artifact@v2
+        with:
+          name: pytest-report
+          path: report.html
 
     
 
