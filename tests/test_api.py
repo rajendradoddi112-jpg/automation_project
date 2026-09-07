@@ -2,7 +2,7 @@ import uuid
 
 import pytest
 from utils.API_util import APIClient
-#hi Rajendra kumar
+
 @pytest.fixture(scope="module")
 def API_util():
     return APIClient()
